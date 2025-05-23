@@ -5,7 +5,7 @@ import {
   ManyToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { BaseEntity } from './base.entity';
+import { BaseEntity } from '@common/persistence/base.entity';
 import { PartEntity } from './part.entity';
 
 @Entity({ name: 'repairs' })

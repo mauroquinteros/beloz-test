@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { BaseEntity } from './base.entity';
+import { BaseEntity } from '@common/persistence/base.entity';
 
 @Entity({ name: 'customers' })
 export class CustomerEntity extends BaseEntity {
@@ -10,11 +10,11 @@ export class CustomerEntity extends BaseEntity {
   name: string;
 
   @Column({ nullable: true })
-  phone: string;
-
-  @Column({ nullable: true })
   email: string;
 
   @Column({ nullable: true })
-  address: string;
+  phone?: number;
+
+  @Column({ nullable: true })
+  address?: string;
 }

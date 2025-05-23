@@ -5,10 +5,10 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { BaseEntity } from './base.entity';
-import { OrderStatus } from '../domain/order';
-import { CustomerEntity } from './customer.entity';
-import { VehicleEntity } from './vehicle.entity';
+import { BaseEntity } from '@common/persistence/base.entity';
+import { CustomerEntity } from '@customer-management/persistence/entities/customer.entity';
+import { VehicleEntity } from '@customer-management/persistence/entities/vehicle.entity';
+import { OrderStatus } from '@workshop-management/domain/entities/order';
 import { RepairEntity } from './repair.entity';
 
 @Entity({ name: 'orders' })

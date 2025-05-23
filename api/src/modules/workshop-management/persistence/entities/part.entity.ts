@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { BaseEntity } from './base.entity';
+import { BaseEntity } from '@common/persistence/base.entity';
 import { RepairEntity } from './repair.entity';
 
 @Entity({ name: 'parts' })
