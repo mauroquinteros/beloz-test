@@ -12,12 +12,20 @@ export class CustomerPostgresRepository implements CustomerRepository {
     private readonly repo: Repository<CustomerEntity>,
   ) {}
 
-  getById(id: string): Promise<Customer> {
-    throw new Error('Method not implemented.');
+  async getById(id: string): Promise<Customer | null> {
+    const customer = await this.repo.findOne({ where: { id } });
+    if (!customer) {
+      return null;
+    }
+    return this.mapToDomain(customer);
   }
 
-  getAll(): Promise<Customer[]> {
-    throw new Error('Method not implemented.');
+  async getAll(): Promise<Customer[] | null> {
+    const customers = await this.repo.find();
+    if (!customers) {
+      return null;
+    }
+    return customers.map((customer) => this.mapToDomain(customer));
   }
 
   async save(customer: Customer): Promise<void> {

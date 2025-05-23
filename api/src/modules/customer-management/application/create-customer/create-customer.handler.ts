@@ -2,13 +2,11 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Customer } from '@customer-management/domain/entities/customer.entity';
 import { CustomerRepository } from '@customer-management/domain/repositories/customer.repository';
 
-export class CreateCustomerArgs {
-  constructor(
-    readonly name: string,
-    readonly email: string,
-    readonly phone?: number,
-    readonly address?: string,
-  ) {}
+interface CreateCustomerArgs {
+  readonly name: string;
+  readonly email: string;
+  readonly phone?: number;
+  readonly address?: string;
 }
 
 @Injectable()
