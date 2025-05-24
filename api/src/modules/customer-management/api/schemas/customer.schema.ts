@@ -15,3 +15,21 @@ export class CreateCustomerRequest {
   @IsOptional()
   readonly address?: string;
 }
+
+export class UpdateCustomerRequest {
+  @IsString()
+  @IsOptional()
+  readonly name?: string;
+
+  @IsEmail()
+  @IsOptional()
+  readonly email?: string;
+
+  @IsNumber()
+  @IsOptional()
+  readonly phone?: number;
+
+  @IsString()
+  @IsOptional()
+  readonly address?: string;
+}

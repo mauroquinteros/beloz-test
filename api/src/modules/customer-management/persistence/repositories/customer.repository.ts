@@ -1,9 +1,9 @@
-import { Customer } from '@customer-management/domain/entities/customer.entity';
-import { CustomerRepository } from '@customer-management/domain/repositories/customer.repository';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CustomerEntity } from '../entities/customer.entity';
 import { Repository } from 'typeorm';
+import { Customer } from '@customer-management/domain/entities/customer.entity';
+import { CustomerEntity } from '../entities/customer.entity';
+import { CustomerRepository } from '@customer-management/domain/repositories/customer.repository';
 
 @Injectable()
 export class CustomerPostgresRepository implements CustomerRepository {
@@ -34,12 +34,20 @@ export class CustomerPostgresRepository implements CustomerRepository {
     await this.repo.save(newCustomer);
   }
 
-  update(id: string): Promise<void> {
-    throw new Error('Method not implemented.');
+  async update(id: string, data: Partial<Customer>): Promise<void> {
+    const updateData = Object.fromEntries(
+      Object.entries(data).filter(([_, value]) => value !== undefined),
+    ) as Partial<CustomerEntity>;
+
+    if (Object.keys(updateData).length === 0) {
+      throw new Error('There is no data to update');
+    }
+
+    await this.repo.update({ id }, updateData);
   }
 
-  delete(id: string): Promise<void> {
-    throw new Error('Method not implemented.');
+  async delete(id: string): Promise<void> {
+    await this.repo.delete(id);
   }
 
   protected mapToDomain(model: CustomerEntity): Customer {

@@ -7,6 +7,8 @@ import { CustomerPostgresRepository } from './persistence/repositories/customer.
 import { GetCustomerByIdHandler } from './application/get-customer-by-id/get-customer-by-id.handler';
 import { GetCustomersHandler } from './application/get-customers/get-customers.handler';
 import { CreateCustomerHandler } from './application/create-customer/create-customer.handler';
+import { UpdateCustomerHandler } from './application/update-customer/update-customer.handler';
+import { DeleteCustomerHandler } from './application/delete-customer/delete-customer.handler';
 
 @Module({
   imports: [TypeOrmModule.forFeature([CustomerEntity, VehicleEntity])],
@@ -15,6 +17,8 @@ import { CreateCustomerHandler } from './application/create-customer/create-cust
     GetCustomerByIdHandler,
     GetCustomersHandler,
     CreateCustomerHandler,
+    UpdateCustomerHandler,
+    DeleteCustomerHandler,
     {
       provide: 'CUSTOMER_REPO',
       useClass: CustomerPostgresRepository,
