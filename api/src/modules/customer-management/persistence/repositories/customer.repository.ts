@@ -1,9 +1,9 @@
+import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { Customer } from '@customer-management/domain/entities/customer.entity';
-import { CustomerEntity } from '../entities/customer.entity';
 import { CustomerRepository } from '@customer-management/domain/repositories/customer.repository';
+import { CustomerEntity } from '../entities/customer.entity';
 
 @Injectable()
 export class CustomerPostgresRepository implements CustomerRepository {
@@ -67,7 +67,6 @@ export class CustomerPostgresRepository implements CustomerRepository {
     customer.email = entity.email;
     customer.phone = entity.phone;
     customer.address = entity.address;
-
     return customer;
   }
 }

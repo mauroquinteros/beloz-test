@@ -9,11 +9,11 @@ import {
   Put,
   Delete,
 } from '@nestjs/common';
-import { CreateCustomerHandler } from '@customer-management/application/create-customer/create-customer.handler';
 import {
   CreateCustomerRequest,
   UpdateCustomerRequest,
 } from '../schemas/customer.schema';
+import { CreateCustomerHandler } from '@customer-management/application/create-customer/create-customer.handler';
 import { GetCustomerByIdHandler } from '@customer-management/application/get-customer-by-id/get-customer-by-id.handler';
 import { GetCustomersHandler } from '@customer-management/application/get-customers/get-customers.handler';
 import { UpdateCustomerHandler } from '@customer-management/application/update-customer/update-customer.handler';
