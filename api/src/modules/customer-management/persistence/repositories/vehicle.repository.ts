@@ -37,8 +37,16 @@ export class VehiclePostgresRepositoryy implements VehicleRepository {
     await this.repo.save(newVehicle);
   }
 
-  async update(id: string, data: Partial<Vehicle>): Promise<void> {
-    throw new Error('Method not implemented.');
+  async update(id: string, data: Vehicle): Promise<void> {
+    const updateData = Object.fromEntries(
+      Object.entries(data).filter(([_, value]) => value !== undefined),
+    ) as Partial<VehicleEntity>;
+
+    if (Object.keys(updateData).length === 0) {
+      throw new Error('There is no data to update');
+    }
+
+    await this.repo.update({ id }, updateData);
   }
 
   async delete(id: string): Promise<void> {

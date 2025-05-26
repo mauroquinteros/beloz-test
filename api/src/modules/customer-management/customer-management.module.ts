@@ -11,7 +11,11 @@ import { GetCustomersHandler } from './application/get-customers/get-customers.h
 import { CreateCustomerHandler } from './application/create-customer/create-customer.handler';
 import { UpdateCustomerHandler } from './application/update-customer/update-customer.handler';
 import { DeleteCustomerHandler } from './application/delete-customer/delete-customer.handler';
+import { GetVehicleByIdHandler } from './application/get-vehicle-by-id/get-vehicle-by-id.handler';
+import { GetVehiclesHandler } from './application/get-vehicles/get-vehicles.handler';
 import { CreateVehicleHandler } from './application/create-vehicle/create-vehicle.handler';
+import { UpdateVehicleHandler } from './application/update-vehicle/update-vehicle.handler';
+import { DeleteVehicleHandler } from './application/delete-vehicle/delete-vehicle.handler';
 
 @Module({
   imports: [TypeOrmModule.forFeature([CustomerEntity, VehicleEntity])],
@@ -22,7 +26,11 @@ import { CreateVehicleHandler } from './application/create-vehicle/create-vehicl
     CreateCustomerHandler,
     UpdateCustomerHandler,
     DeleteCustomerHandler,
+    GetVehicleByIdHandler,
+    GetVehiclesHandler,
     CreateVehicleHandler,
+    UpdateVehicleHandler,
+    DeleteVehicleHandler,
     {
       provide: 'CUSTOMER_REPO',
       useClass: CustomerPostgresRepository,
