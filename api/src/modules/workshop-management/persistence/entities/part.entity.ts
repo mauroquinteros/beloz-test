@@ -11,13 +11,13 @@ export class PartEntity extends BaseEntity {
   name: string;
 
   @Column()
-  description: string;
+  currentStock: number;
 
-  @Column()
-  currenStock: number;
-
-  @Column()
+  @Column('decimal', { precision: 10, scale: 2 })
   costPrice: number;
+
+  @Column({ nullable: true })
+  description?: string;
 
   @ManyToMany(() => RepairEntity, (repair) => repair.parts)
   repairs: RepairEntity[];
