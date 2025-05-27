@@ -10,19 +10,29 @@ import { GetPartByIdHandler } from './application/get-part-by-id/get-part-by-id.
 import { GetPartsHandler } from './application/get-parts/get-parts.handler';
 import { UpdatePartHandler } from './application/update-part/update-part.handler';
 import { DeletePartHandler } from './application/delete-part/delete-part.handler';
+import { CreateRepairHandler } from './application/create-repair/create-repair.handler';
+import { RepairController } from './api/controllers/repair.controller';
+import { RepairPostgresRepository } from './persistence/repositories/repair.repository';
+import { GetRepairByIdHandler } from './application/get-repair-by-id/get-repair-by-id.handler';
 
 @Module({
   imports: [TypeOrmModule.forFeature([OrderEntity, RepairEntity, PartEntity])],
-  controllers: [PartController],
+  controllers: [PartController, RepairController],
   providers: [
     GetPartByIdHandler,
     GetPartsHandler,
     CreatePartHandler,
     UpdatePartHandler,
     DeletePartHandler,
+    GetRepairByIdHandler,
+    CreateRepairHandler,
     {
       provide: 'PART_REPO',
       useClass: PartPostgresRepository,
+    },
+    {
+      provide: 'REPAIR_REPO',
+      useClass: RepairPostgresRepository,
     },
   ],
 })

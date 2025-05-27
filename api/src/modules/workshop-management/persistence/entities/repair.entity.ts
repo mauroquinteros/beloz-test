@@ -16,14 +16,14 @@ export class RepairEntity extends BaseEntity {
   @Column()
   name: string;
 
-  @Column()
-  description: string;
-
-  @Column()
+  @Column('decimal', { precision: 10, scale: 2 })
   laborCost: number;
 
-  @Column()
+  @Column('decimal', { precision: 10, scale: 2 })
   totalPrice: number;
+
+  @Column({ nullable: true })
+  description?: string;
 
   @ManyToMany(() => PartEntity, (part) => part.repairs)
   @JoinTable({

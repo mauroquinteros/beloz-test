@@ -1,10 +1,10 @@
 import { generateId } from '@common/utils/uuid-generator';
-import { Customer, CustomerObject } from './customer.entity';
+import { Customer, CustomerData } from './customer.entity';
 
 export interface VehicleData {
   license: string;
   make: string;
-  customer?: CustomerObject;
+  customer?: CustomerData;
   id?: string;
   year?: number;
 }

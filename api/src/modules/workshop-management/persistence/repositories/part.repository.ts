@@ -53,7 +53,7 @@ export class PartPostgresRepository implements PartRepository {
   protected mapToDomain(entity: PartEntity): Part {
     return Part.create({
       id: entity.id,
-      name: entity.id,
+      name: entity.name,
       currentStock: entity.currentStock,
       costPrice: entity.costPrice,
       description: entity.description,
