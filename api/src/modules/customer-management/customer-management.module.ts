@@ -40,5 +40,15 @@ import { DeleteVehicleHandler } from './application/delete-vehicle/delete-vehicl
       useClass: VehiclePostgresRepositoryy,
     },
   ],
+  exports: [
+    {
+      provide: 'CUSTOMER_REPO',
+      useClass: CustomerPostgresRepository,
+    },
+    {
+      provide: 'VEHICLE_REPO',
+      useClass: VehiclePostgresRepositoryy,
+    },
+  ],
 })
 export class CustomerManagementModule {}

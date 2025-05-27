@@ -8,7 +8,7 @@ import {
 import { BaseEntity } from '@common/persistence/base.entity';
 import { CustomerEntity } from '@customer-management/persistence/entities/customer.entity';
 import { VehicleEntity } from '@customer-management/persistence/entities/vehicle.entity';
-import { OrderStatus } from '@workshop-management/domain/entities/order';
+import { OrderStatus } from '@workshop-management/domain/entities/order.entity';
 import { RepairEntity } from './repair.entity';
 
 @Entity({ name: 'orders' })
@@ -16,17 +16,14 @@ export class OrderEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
-  name: string;
-
   @Column({ type: 'enum', enum: OrderStatus, default: OrderStatus.PENDING })
   status: string;
 
-  @Column()
+  @Column('decimal', { precision: 10, scale: 2 })
   totalPrice: number;
 
-  @Column()
-  notes: string;
+  @Column({ nullable: true })
+  notes?: string;
 
   @ManyToOne(() => CustomerEntity, { nullable: false })
   @JoinColumn({ name: 'customer_id' })

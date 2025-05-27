@@ -41,7 +41,7 @@ export class RepairController {
   }
 
   @Get('')
-  async getParts() {
+  async getRepairs() {
     try {
       //
     } catch (error) {
@@ -49,11 +49,8 @@ export class RepairController {
     }
   }
 
-  @Put('/:partId')
-  async updatePart(
-    @Param() params: { partId: string },
-    // @Body() body: UpdatePartRequest,
-  ) {
+  @Put('/:repairId')
+  async updateRepair(@Param() params: { repairId: string }) {
     try {
       //
     } catch (error) {
@@ -61,8 +58,8 @@ export class RepairController {
     }
   }
 
-  @Delete('/:partId')
-  async deletePart(@Param() params: { partId: string }) {
+  @Delete('/:repairId')
+  async deleteRepair(@Param() params: { repairId: string }) {
     try {
       //
     } catch (error) {

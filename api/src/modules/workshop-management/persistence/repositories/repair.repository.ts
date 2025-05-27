@@ -1,3 +1,4 @@
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repair } from '@workshop-management/domain/entities/repair.entity';
 import { RepairRepository } from '@workshop-management/domain/repositories/repair.repository';
@@ -6,6 +7,7 @@ import { Repository } from 'typeorm';
 import { PartEntity } from '../entities/part.entity';
 import { Part } from '@workshop-management/domain/entities/part.entity';
 
+@Injectable()
 export class RepairPostgresRepository implements RepairRepository {
   constructor(
     @InjectRepository(RepairEntity)
@@ -47,6 +49,7 @@ export class RepairPostgresRepository implements RepairRepository {
     repair.name = model.name;
     repair.laborCost = model.laborCost;
     repair.totalPrice = model.totalPrice;
+    repair.description = model.description;
 
     if (model.parts.length > 0) {
       const parts = model.parts.map((part) => {
@@ -81,6 +84,7 @@ export class RepairPostgresRepository implements RepairRepository {
       name: entity.name,
       laborCost: entity.laborCost,
       totalPrice: entity.totalPrice,
+      description: entity.description,
       parts,
     });
   }
