@@ -1,0 +1,535 @@
+{
+	"info": {
+		"_postman_id": "03884d21-9c67-493d-906b-05d8c6e79ed3",
+		"name": "Beloz Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8726641"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "save customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Mauro Quinteros\",\n    \"email\": \"quinterosmauro@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/customers",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update customer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"quinterosmauro01@gmail.com\",\n    \"phone\": 987654321\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/customers/:customerId",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"customers",
+								":customerId"
+							],
+							"variable": [
+								{
+									"key": "customerId",
+									"value": "46b64af9-eea7-47d2-b670-8b56008c34d6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/customers",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get customer by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/customers/:customerId",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"customers",
+								":customerId"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "customerId",
+									"value": "46b64af9-eea7-47d2-b670-8b56008c34d6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/customers/:customerId",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"customers",
+								":customerId"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "customerId",
+									"value": "46b64af9-eea7-47d2-b670-8b56008c34d6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle",
+			"item": [
+				{
+					"name": "save vehicle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerId\": \"eb9cc264-1570-44b2-853a-1cf270de36e6\",\n    \"license\": \"CXA-30\",\n    \"make\": \"Mazda\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/vehicles",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get vehicle by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/vehicles/:vehicleId",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"vehicles",
+								":vehicleId"
+							],
+							"variable": [
+								{
+									"key": "vehicleId",
+									"value": "aeda6664-75b1-42b5-8e88-8e67ac7202e2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get vehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/vehicles",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update vehicle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"make\": \"Nissan\",\n    \"year\": 2022\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/vehicles/:vehicleId",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"vehicles",
+								":vehicleId"
+							],
+							"variable": [
+								{
+									"key": "vehicleId",
+									"value": "19d43d63-0419-4101-996e-5ff7b18205e3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete vehicle",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/vehicles/:vehicleId",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"vehicles",
+								":vehicleId"
+							],
+							"variable": [
+								{
+									"key": "vehicleId",
+									"value": "aeda6664-75b1-42b5-8e88-8e67ac7202e2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Part",
+			"item": [
+				{
+					"name": "save part",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"car battery\",\n  \"currentStock\": 10,\n  \"costPrice\": 24.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/parts",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"parts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get part by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/parts/:partId",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"parts",
+								":partId"
+							],
+							"variable": [
+								{
+									"key": "partId",
+									"value": "7f891e8c-afed-468c-811a-8d63a90b9df8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get parts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/parts",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"parts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update part",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"tire\",\n  \"currentStock\": 10,\n  \"costPrice\": \"10.5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/parts/:partId",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"parts",
+								":partId"
+							],
+							"variable": [
+								{
+									"key": "partId",
+									"value": "7f891e8c-afed-468c-811a-8d63a90b9df8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete part",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/parts/:partId",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"parts",
+								":partId"
+							],
+							"variable": [
+								{
+									"key": "partId",
+									"value": "7f891e8c-afed-468c-811a-8d63a90b9df8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Repair",
+			"item": [
+				{
+					"name": "create repair",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"battery replacement\",\n    \"laborCost\": 8,\n    \"parts\": [\n        \"7485dcdc-09ec-4f7a-99c4-e1e822502363\",\n        \"ad31bb29-f317-490d-9e46-937490aa34d3\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/repairs",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"repairs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get repair by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/repairs/:repairId",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"repairs",
+								":repairId"
+							],
+							"variable": [
+								{
+									"key": "repairId",
+									"value": "ccdd8e77-e3e2-410e-97c0-16616efe28dc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"repairId\": \"ccdd8e77-e3e2-410e-97c0-16616efe28dc\",\n    \"vehicleId\": \"19d43d63-0419-4101-996e-5ff7b18205e3\",\n    \"customerId\": \"d780282b-6adc-46d2-a465-99236bf2df0e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/orders",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localUrl",
+			"value": "http://localhost:3000/api",
+			"type": "string"
+		}
+	]
+}
